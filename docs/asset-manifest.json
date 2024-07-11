@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/kiite-information/static/css/main.729e3468.css",
+    "main.js": "/kiite-information/static/js/main.31bb65ba.js",
+    "static/js/453.7bb286e1.chunk.js": "/kiite-information/static/js/453.7bb286e1.chunk.js",
+    "static/media/logo.png": "/kiite-information/static/media/logo.6548d1d360e5d34741af.png",
+    "index.html": "/kiite-information/index.html",
+    "main.729e3468.css.map": "/kiite-information/static/css/main.729e3468.css.map",
+    "main.31bb65ba.js.map": "/kiite-information/static/js/main.31bb65ba.js.map",
+    "453.7bb286e1.chunk.js.map": "/kiite-information/static/js/453.7bb286e1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.729e3468.css",
+    "static/js/main.31bb65ba.js"
+  ]
+}
