@@ -17,6 +17,7 @@ const MainContent: React.FC = () => {
                 setUserCount(response.data);
                 setLoading(false);
             } catch (err) {
+                console.log(err);
                 setError('userCountの取得中にエラーが発生しました');
                 setLoading(false);
             }
@@ -31,6 +32,7 @@ const MainContent: React.FC = () => {
                 setNowSongUrl(`https://www.nicovideo.jp/watch/${response2.data.video_id}`);
                 setLoading(false);
             } catch (err) {
+                console.log(err);
                 setError('nowSongの取得中にエラーが発生しました');
                 setLoading(false);
             }
