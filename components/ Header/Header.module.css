@@ -1,0 +1,18 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background-color: #475656;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px; /* ロゴのサイズを適切に調整してください */
+    width: auto;
+    padding-right: 20px;
+}
