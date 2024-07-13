@@ -27,12 +27,12 @@ const testData = {
             "color": "indigo",
             "owner": {
                 "user_id": 12345,
-                "nickname": "真紅",
+                "nickname": "テスト",
                 "avatar_url": "test2.png",
                 "status": "active",
             },
             "playlist": {
-                "list_title": "好き好き大好き曲ツアー",
+                "list_title": "好き好き大好きツアー",
                 "description": "好きな曲を発表します。¥nからあげ"
             },
             "video_ids": ["sm9"]
@@ -42,7 +42,7 @@ const testData = {
 }
 
 const WorldInformation: React.FC = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState(testData);
 
     useEffect(() => {
       const fetchData = async () => {
@@ -63,7 +63,6 @@ const WorldInformation: React.FC = () => {
       fetchData();
     }, []);
 
-    console.log(data);
     const HotWorldIds = data.user_ids;
     const HotWorldCount = HotWorldIds.length;
 
@@ -75,7 +74,7 @@ const WorldInformation: React.FC = () => {
         const syncCount = data.sync_counts[id];
         hotWorld[i] = [nickname, listTitle, syncCount];
     }
-   
+    
   return (
     <div className="world-information">
         <h2>Kiite Worldの情報</h2>

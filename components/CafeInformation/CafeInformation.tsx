@@ -3,11 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const CafeInformation: React.FC = () => {
-    const [userCount, setUserCount] = useState(null);
-    const [nowPlayingSongTitle, setNowPlayingSongTitle] = useState(null);
-    const [nowPlayingSongUrl, setNowPlayingSongUrl] = useState(null);
-    const [nowPlayingSongReportUrl, setNowPlayingSongReportUrl] = useState(null);
-    const [nowPlayingSongWorldUrl, setNowPlayingSongWorldUrl] = useState(null);
+    const [userCount, setUserCount] = useState(0);
+    const [nowPlayingSongTitle, setNowPlayingSongTitle] = useState("");
+    const [nowPlayingSongUrl, setNowPlayingSongUrl] = useState("");
+    const [nowPlayingSongReportUrl, setNowPlayingSongReportUrl] = useState("");
+    const [nowPlayingSongWorldUrl, setNowPlayingSongWorldUrl] = useState("");
 
     useEffect(() => {
       const fetchData = async () => {
