@@ -9,6 +9,7 @@ export default async function handler(
         const response = await axios.get<any>('https://cafeapi.kiite.jp/api/cafe/user_count');
         res.status(200).json(response.data);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ error: 'Failed to fetch data' });
     }
 }
