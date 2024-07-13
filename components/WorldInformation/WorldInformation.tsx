@@ -69,18 +69,18 @@ const testData: TestData = {
 }
 
 const WorldInformation: React.FC = () => {
-    const [data, setData] = useState<TestData>(testData);
+    const [data, setData] = useState<any>(testData);
 
     useEffect(() => {
       const fetchData: () => Promise<void> = async () => {
         try {
-          // const [response] = await Promise.all([
-          //   axios.get<any>('/api/externalApiHotWorld'),
-          //   ]);
-          // setData(response.data);
+          const [response]: [any] = await Promise.all([
+            axios.get<any>('/api/externalApiHotWorld'),
+            ]);
+          setData(response.data);
 
         // ここからテスト用
-        setData(testData);
+        // setData(testData);
         // ここまでテスト用
         } catch(error) {
           console.log('Error fetching data: ', error);

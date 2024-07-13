@@ -22,7 +22,6 @@ const CafeInformation: React.FC = () => {
           setNowPlayingSongUrl(`https://nicovideo.jp/watch/${smNumber}`);
           setNowPlayingSongReportUrl(`https://report.kiite.jp/song/${smNumber}`);
           setNowPlayingSongWorldUrl(`https://world.kiite.jp/glkw/intro?s=${smNumber}`);
-          
         } catch(error) {
           console.log('Error fetching data: ', error);
         }
