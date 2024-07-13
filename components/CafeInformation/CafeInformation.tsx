@@ -3,22 +3,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const CafeInformation: React.FC = () => {
-    const [userCount, setUserCount] = useState(0);
-    const [nowPlayingSongTitle, setNowPlayingSongTitle] = useState("");
-    const [nowPlayingSongUrl, setNowPlayingSongUrl] = useState("");
-    const [nowPlayingSongReportUrl, setNowPlayingSongReportUrl] = useState("");
-    const [nowPlayingSongWorldUrl, setNowPlayingSongWorldUrl] = useState("");
+    const [userCount, setUserCount] = useState<number>(0);
+    const [nowPlayingSongTitle, setNowPlayingSongTitle] = useState<string>("");
+    const [nowPlayingSongUrl, setNowPlayingSongUrl] = useState<string>("");
+    const [nowPlayingSongReportUrl, setNowPlayingSongReportUrl] = useState<string>("");
+    const [nowPlayingSongWorldUrl, setNowPlayingSongWorldUrl] = useState<string>("");
 
     useEffect(() => {
-      const fetchData = async () => {
+      const fetchData: () => Promise<void> = async() => {
         try {
           const [userResponse, songResponse] = await Promise.all([
-            axios.get('/api/externalApiUserCount'),
-            axios.get('/api/externalApiNowPlaying'),
+            axios.get<any>('/api/externalApiUserCount'),
+            axios.get<any>('/api/externalApiNowPlaying'),
             ]);
           setUserCount(userResponse.data);
           setNowPlayingSongTitle(songResponse.data.title);
-          const smNumber = songResponse.data.video_id;
+          const smNumber: number = songResponse.data.video_id;
           setNowPlayingSongUrl(`https://nicovideo.jp/watch/${smNumber}`);
           setNowPlayingSongReportUrl(`https://report.kiite.jp/song/${smNumber}`);
           setNowPlayingSongWorldUrl(`https://world.kiite.jp/glkw/intro?s=${smNumber}`);
