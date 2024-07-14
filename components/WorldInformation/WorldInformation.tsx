@@ -30,7 +30,7 @@ interface TestData {
 }
 
 // テストデータ
-const testData: TestData = {
+const testData: any = {
     "user_ids":[12345, 67890],
     "sync_counts":{"67890": 8, "12345": 5},
     "worlds": {
@@ -68,8 +68,10 @@ const testData: TestData = {
     "__response_ms":237
 }
 
+const testData2 = {"user_ids":[24483],"sync_counts":{"24483":14},"worlds":{"24483":{"user_id":24483,"list_id":"TMPMspnMMG","color":"indigo","updated_at":"2024-07-13T13:32:54.000Z","owner":{"user_id":24483,"user_name":"limeade9929","nickname":"かとう","avatar_url":"https://d7209z8dzwjpy.cloudfront.net/avatar/xqRB0klsAkN2wWciFBaETqIkRCgNJA6FWoGO2tub.png","status":"active"},"playlist":{"list_id":"TMPMspnMMG","list_title":"雨の日ツアー","description":"いい感じの歌詞の引用と【】内に曲を聴いた時に私が思ったことを書いてみました"},"video_ids":["sm43531270","sm38927801","sm43167366","sm42578044","sm28614737","sm40310966","sm40530103","sm35954619","sm40555597","sm38311590","sm23019266","sm42481977"]}},"__response_ms":308};
+
 const WorldInformation: React.FC = () => {
-    const [data, setData] = useState<any>(testData);
+    const [data, setData] = useState<any>(testData2);
 
     useEffect(() => {
       const fetchData: () => Promise<void> = async () => {
@@ -78,9 +80,10 @@ const WorldInformation: React.FC = () => {
             axios.get<any>('/api/externalApiHotWorld'),
             ]);
           setData(response.data);
+          // console.log(response.data);
 
         // ここからテスト用
-        // setData(testData);
+        // setData(testData2);
         // ここまでテスト用
         } catch(error) {
           console.log('Error fetching data: ', error);
@@ -94,13 +97,16 @@ const WorldInformation: React.FC = () => {
     const HotWorldCount: number = HotWorldIds.length;
 
     const hotWorld: Array<[string, string, number, string]> = [];
-    for (let i = 0; i < HotWorldCount; i++) {
-        const id: number = HotWorldIds[i];
-        const nickname: string = data.worlds[id].owner.nickname;
-        const listTitle: string = data.worlds[id].playlist.list_title;
-        const syncCount: number = data.sync_counts[id];
-        hotWorld[i] = [nickname, listTitle, syncCount, `hot-world${i}`];
+      if (HotWorldCount > 0) {
+      for (let i = 0; i < HotWorldCount; i++) {
+          const id: string = String(HotWorldIds[i]);
+          const nickname: string = data.worlds[id].owner.nickname;
+          const listTitle: string = data.worlds[id].playlist.list_title;
+          const syncCount: number = data.sync_counts[id];
+          hotWorld[i] = [nickname, listTitle, syncCount, `hot-world${i}`];
+      }  
     }
+
     
   return (
     <div className="world-information">
