@@ -68,10 +68,10 @@ const testData: any = {
     "__response_ms":237
 }
 
-const testData2 = {"user_ids":[24483],"sync_counts":{"24483":14},"worlds":{"24483":{"user_id":24483,"list_id":"TMPMspnMMG","color":"indigo","updated_at":"2024-07-13T13:32:54.000Z","owner":{"user_id":24483,"user_name":"limeade9929","nickname":"かとう","avatar_url":"https://d7209z8dzwjpy.cloudfront.net/avatar/xqRB0klsAkN2wWciFBaETqIkRCgNJA6FWoGO2tub.png","status":"active"},"playlist":{"list_id":"TMPMspnMMG","list_title":"雨の日ツアー","description":"いい感じの歌詞の引用と【】内に曲を聴いた時に私が思ったことを書いてみました"},"video_ids":["sm43531270","sm38927801","sm43167366","sm42578044","sm28614737","sm40310966","sm40530103","sm35954619","sm40555597","sm38311590","sm23019266","sm42481977"]}},"__response_ms":308};
+const testData2 = {"user_ids":[24483],"sync_counts":{"24483":14},"worlds":{"24483":{"user_id":24483,"list_id":"TMPMspnMMG","color":"indigo","updated_at":"2024-07-13T13:32:54.000Z","owner":{"user_id":24483,"user_name":"limeade9929","nickname":"りん","avatar_url":"https://d7209z8dzwjpy.cloudfront.net/avatar/xqRB0klsAkN2wWciFBaETqIkRCgNJA6FWoGO2tub.png","status":"active"},"playlist":{"list_id":"TMPMspnMMG","list_title":"ツアー名","description":"リストの説明文"},"video_ids":["sm43531270","sm38927801","sm43167366","sm42578044","sm28614737","sm40310966","sm40530103","sm35954619","sm40555597","sm38311590","sm23019266","sm42481977"]}},"__response_ms":308};
 
 const WorldInformation: React.FC = () => {
-    const [data, setData] = useState<any>(testData2);
+    const [data, setData] = useState<any>(testData);
 
     useEffect(() => {
       const fetchData: () => Promise<void> = async () => {
@@ -80,7 +80,7 @@ const WorldInformation: React.FC = () => {
             axios.get<any>('/api/externalApiHotWorld'),
             ]);
           setData(response.data);
-          // console.log(response.data);
+          console.log(response.data);
 
         // ここからテスト用
         // setData(testData2);
